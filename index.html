@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <h1 id="title">Weather Forecast</h1>
+    <div id="nav-container">
+        <form id="form">
+            <label for="City" class="form-label">Search for a City:</label>
+            <input type="text" id="userInput" name="City" />
+            <button type="submit" id="searchBtn" class="btn">Search</button>
+        </form>
+        <br>
+        <div id="recentSearches">
+            <button class="btn">Old Search Here</button>
+        </div>
+    </div>
+    <div id="todaysWeather"></div>
+    <div id="fiveDayForecast-container">
+        <div class="fiveDayForecastCard">weather card</div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
