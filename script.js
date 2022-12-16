@@ -34,24 +34,25 @@ var formSubmitHandler = function (event) {
                         console.log(data[0].lon);
                         var lat = data[0].lat;
                         var lon = data[0].lon;
+                        // console.log(lat);
+                        // console.log(lon);
+                        var apiUrl = apiStart + lat + lonKey + lon + apiKey;
+                        fetch(apiUrl)
+                            .then(function (response) {
+                                if (response.ok) {
+                                    response.json().then(function(data) {
+                                    console.log(data);
+                                });
+                                }
+                        })
+
                 });
                 }
             })
     };
     getCoor();
 
-    var getWeather = function() {
-        var lat ='37.5385087'
-        var lon = '-77.43428'
-        apiUrl = apiStart + lat + lonKey + lon + apiKey;
-        fetch(apiUrl)
-            .then(function (response) {
-                console.log(apiUrl);
-                // console.log(apiUrl);
-                return response.json();
-            })
-    }
-    getWeather();
+    
     // console.log(lat);
     // console.log(lon);
     // var getWeather = function() {
