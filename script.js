@@ -6,7 +6,7 @@ var todaysWeather = document.querySelector('#todaysWeather');
 var fiveDayForecastCardnput = document.querySelector('.fiveDayForecastCard');
 // var city = userInput.value.trim();
 var apiKey = '&appid=890919f21758bd5b25e56343a417bb71';
-var apiStart = 'api.openweathermap.org/data/2.5/forecast?lat=';
+var apiStart = 'http://api.openweathermap.org/data/2.5/forecast?lat=';
 // var lat ='37.5385087'
 var lonKey = '&lon=';
 // var lon = '-77.43428'
