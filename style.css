@@ -4,10 +4,135 @@
 }
 
 h1 {
-    display: felx;
+    display: flex;
+    justify-content:space-around;
     text-align: center;
     background-image: linear-gradient(to right,rgb(0, 165, 220), rgb(0, 0, 83));
     color: white;
     padding: 10px; 
+    margin:0;
 }
 
+h2 {
+    margin:5px 0 5px 0;
+    font-size: large;  
+}
+
+#main-container {
+    display: flex;
+    margin:0;
+    padding:0;
+}
+
+#nav-container {
+    display:flex;
+    flex-direction: column;
+    width: 25%;
+    padding:0px 15px 0px 15px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 10px 0px 10px 0;
+}
+
+#userInput {
+    padding: 5px 0px 5px 5px;
+    margin: 0px 0px 10px 0;
+}
+
+#searchBtn {
+    background-color: rgb(98, 172, 206);
+    color: white;
+}
+
+hr {
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.btn {
+    width:100%;
+    border:none;
+    background-color: rgb(197, 193, 193);
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#weatherContainer {
+    display: flex;
+    flex-direction: column;
+    width:70%;
+    justify-content:left;
+    margin: 10px 0 0 0;
+}
+
+#todaysWeather {
+    border: 1px solid black;
+}
+
+#currentHead {
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    padding:0 0 0 5px;
+}
+
+#currentCity {
+    padding:0px 6px 0 0;
+    margin: 10px 0 15px 0;
+}
+
+#currentDate {
+    margin: 10px 0 15px 0;
+}
+
+#currentTemp {
+    padding:0 0 0 5px;
+    margin:0 0 15px 0;
+}
+
+#currentWind {
+    padding:0 0 0 5px;
+}
+
+#currentHumidity {
+    padding:0 0 0 5px;
+}
+
+#fiveDayForecast-container {
+    display: flex;
+    justify-content:space-between;
+}
+
+.fiveDayForecastCard {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: rgb(26, 37, 56);
+    margin: 0 ;
+    padding: 10px;
+    font-size: medium;
+    width:19%;
+}
+
+.date {
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.cardInfo {
+    padding: 10px 0 0 0;
+    /* margin: 10px 0 0 0; */
+}

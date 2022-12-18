@@ -11,22 +11,73 @@
     <div id="title-container">
         <h1 id="title">Weather Forecast</h1>
     </div>
-    <div id="nav-container">
-        <form id="form">
-            <label for="City" class="form-label">Search for a City:</label>
-            <input type="text" id="userInput" name="City" />
-            <button type="submit" id="searchBtn" class="btn">Search</button>
-        </form>
-        <br>
-        <div id="recentSearches">
-            <button class="btn">Old Search Here</button>
+    <div id="main-container">
+        <div id="nav-container">
+            <form id="form">
+                <label for="City" class="form-label">Search for a City:</label>
+                <input type="text" placeholder="Search" id="userInput" name="City" />
+                <button type="submit" id="searchBtn" class="btn">Search</button>
+            </form>
+            <hr />
+            <div id="recentSearches">
+                <button class="btn">Old Search Here</button>
+                <button class="btn">Old Search Here</button>
+                <button class="btn">Old Search Here</button>
+                <button class="btn">Old Search Here</button>
+                <button class="btn">Old Search Here</button>
+                <button class="btn">Old Search Here</button>
+            </div>
         </div>
-    </div>
-    <div id="todaysWeather">
-        <p id="current-temp"></p>
-    </div>
-    <div id="fiveDayForecast-container">
-        <div class="fiveDayForecastCard">weather card</div>
+        <div id="weatherContainer">
+            <div id="todaysWeather">
+                <div id="currentHead">
+                    <p id="currentCity">Richmond</p>
+                    <p id="currentDate">(12/18/22)</p>
+                    <i id="currentIcon"></i>
+                </div>
+                <p id="currentTemp">Temp: 33ºF</p>
+                <p id="currentWind">Wind: 0 MPH</p>
+                <p id="currentHumidity">Humidity: 0 %</p>
+            </div>
+            <h2>5-Day Forecast:</h2>
+            <div id="fiveDayForecast-container">
+                <div class="fiveDayForecastCard">
+                    <div class="date">12/19/22</div>
+                    <i class="icon">icon</i>
+                    <div id="temp1" class="cardInfo">Temp: 32ºF</div>
+                    <div id="wind1" class="cardInfo">Wind: 3 MPH</div>
+                    <div id="humidity1" class="cardInfo">Humidity: 20 %</div>
+                </div>
+                <div class="fiveDayForecastCard">
+                    <div class="date">12/20/22</div>
+                    <i class="icon" class="cardInfo">icon</i>
+                    <div id="temp2" class="cardInfo">Temp: 32ºF</div>
+                    <div id="wind2" class="cardInfo">Wind: 3 MPH</div>
+                    <div id="humidity2" class="cardInfo">Humidity: 20 %</div>
+                </div>
+                <div class="fiveDayForecastCard">
+                    <div class="date">12/21/22</div>
+                    <i class="icon" class="cardInfo">icon</i>
+                    <div id="temp3" class="cardInfo">Temp: 32ºF</div>
+                    <div id="wind3" class="cardInfo">Wind: 3 MPH</div>
+                    <div id="humidity3" class="cardInfo">Humidity: 20 %</div>
+                </div>
+                <div class="fiveDayForecastCard">
+                    <div class="date">12/22/22</div>
+                    <i class="icon" class="cardInfo">icon</i>
+                    <div id="temp4" class="cardInfo">Temp: 32ºF</div>
+                    <div id="wind4" class="cardInfo">Wind: 3 MPH</div>
+                    <div id="humidity4" class="cardInfo">Humidity: 20 %</div>
+                </div>
+                <div class="fiveDayForecastCard">
+                    <div class="date">12/23/22</div>
+                    <i class="icon" class="cardInfo">icon</i>
+                    <div id="temp5" class="cardInfo">Temp: 32ºF</div>
+                    <div id="wind5" class="cardInfo">Wind: 3 MPH</div>
+                    <div id="humidity5" class="cardInfo">Humidity: 20 %</div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>
