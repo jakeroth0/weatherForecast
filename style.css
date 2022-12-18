@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+h1 {
+    display: felx;
+    text-align: center;
+    background-image: linear-gradient(to right,rgb(0, 165, 220), rgb(0, 0, 83));
+    color: white;
+    padding: 10px; 
+}
+
