@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 id="title">Weather Forecast</h1>
+    <div id="title-container">
+        <h1 id="title">Weather Forecast</h1>
+    </div>
     <div id="nav-container">
         <form id="form">
             <label for="City" class="form-label">Search for a City:</label>
@@ -20,7 +22,9 @@
             <button class="btn">Old Search Here</button>
         </div>
     </div>
-    <div id="todaysWeather"></div>
+    <div id="todaysWeather">
+        <p id="current-temp"></p>
+    </div>
     <div id="fiveDayForecast-container">
         <div class="fiveDayForecastCard">weather card</div>
     </div>

@@ -6,7 +6,8 @@ var todaysWeather = document.querySelector('#todaysWeather');
 var fiveDayForecastCardnput = document.querySelector('.fiveDayForecastCard');
 // var city = userInput.value.trim();
 var apiKey = '&appid=890919f21758bd5b25e56343a417bb71';
-var apiStart = 'http://api.openweathermap.org/data/2.5/forecast?lat=';
+var apiStart = 'http://api.openweathermap.org/data/2.5/forecast?&units=imperial&lat=';
+var apiCurrentStart = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&lat='
 // var lat ='37.5385087'
 var lonKey = '&lon=';
 // var lon = '-77.43428'
@@ -30,6 +31,9 @@ var formSubmitHandler = function (event) {
                         // dataProcessor(data);
                         console.log(apiCoor);
                         console.log(data[0]);
+                        if (!data[0]) {
+                            return alert('City could not be found: ' + city)
+                        }
                         console.log(data[0].lat);
                         console.log(data[0].lon);
                         var lat = data[0].lat;
@@ -43,6 +47,17 @@ var formSubmitHandler = function (event) {
                                     response.json().then(function(data) {
                                     console.log(data);
                                 });
+                                var apiCurrentUrl = apiCurrentStart + lat + lonKey + lon + apiKey;
+                                fetch(apiCurrentUrl)
+                                    .then(function (response) {
+                                        if (response.ok) {
+                                            
+                                            response.json().then(function(data) {
+                                                console.log(data);
+                                                document.querySelector('#current-temp').textContent = data.main.temp + "ºF";
+                                            });
+                                        }
+                                    })
                                 }
                         })
 
@@ -51,6 +66,7 @@ var formSubmitHandler = function (event) {
             })
     };
     getCoor();
+    
 
     
     // console.log(lat);
