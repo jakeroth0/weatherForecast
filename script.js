@@ -14,6 +14,7 @@ var lonKey = '&lon=';
 var apiCoorStart = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 var coorLimit = '&limit=';
 var limit = '';
+var currentDate = dayjs().format('MM/DD/YY')
 // var apiUrl = apiStart + lat + lonKey + lon + apiKey;
 // var apiCoor = apiCoorStart + city + coorLimit + limit + apiKey;
 
@@ -30,6 +31,8 @@ var formSubmitHandler = function (event) {
                     response.json().then(function(data) {
                         // dataProcessor(data);
                         console.log(apiCoor);
+                        console.log(data[0].name);
+                        document.querySelector('#currentCity').textContent = data[0].name;
                         console.log(data[0]);
                         if (!data[0]) {
                             return alert('City could not be found: ' + city)
@@ -46,6 +49,37 @@ var formSubmitHandler = function (event) {
                                 if (response.ok) {
                                     response.json().then(function(data) {
                                     console.log(data);
+                                    document.querySelector('#currentDate').textContent = "(" + currentDate + ")";
+                                    // Day 1
+                                    document.querySelector('#date1').textContent = dayjs().add(1,'day').format('MM/DD/YY');
+                                    document.querySelector('#icon1').src = "http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png";
+                                    document.querySelector('#temp1').textContent = "Temp: " + data.list[1].main.temp + " ºF";
+                                    document.querySelector('#wind1').textContent = "Wind: " + data.list[1].wind.speed + " MPH";
+                                    document.querySelector('#humidity1').textContent = "Humidity: " + data.list[1].main.humidity + " %";
+                                    // Day 2
+                                    document.querySelector('#date2').textContent = dayjs().add(2,'day').format('MM/DD/YY');
+                                    document.querySelector('#icon2').src = "http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png";
+                                    document.querySelector('#temp2').textContent = "Temp: " + data.list[2].main.temp + " ºF";
+                                    document.querySelector('#wind2').textContent = "Wind: " + data.list[2].wind.speed + " MPH";
+                                    document.querySelector('#humidity2').textContent = "Humidity: " + data.list[2].main.humidity + " %";
+                                    // Day 3
+                                    document.querySelector('#date3').textContent = dayjs().add(3,'day').format('MM/DD/YY');
+                                    document.querySelector('#icon3').src = "http://openweathermap.org/img/w/" + data.list[3].weather[0].icon + ".png";
+                                    document.querySelector('#temp3').textContent = "Temp: " + data.list[3].main.temp + " ºF";
+                                    document.querySelector('#wind3').textContent = "Wind: " + data.list[3].wind.speed + " MPH";
+                                    document.querySelector('#humidity3').textContent = "Humidity: " + data.list[3].main.humidity + " %";
+                                    // Day 4
+                                    document.querySelector('#date4').textContent = dayjs().add(4,'day').format('MM/DD/YY');
+                                    document.querySelector('#icon4').src = "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png";
+                                    document.querySelector('#temp4').textContent = "Temp: " + data.list[4].main.temp + " ºF";
+                                    document.querySelector('#wind4').textContent = "Wind: " + data.list[4].wind.speed + " MPH";
+                                    document.querySelector('#humidity4').textContent = "Humidity: " + data.list[4].main.humidity + " %";
+                                    // Day 5
+                                    document.querySelector('#date5').textContent = dayjs().add(5,'day').format('MM/DD/YY');
+                                    document.querySelector('#icon5').src = "http://openweathermap.org/img/w/" + data.list[5].weather[0].icon + ".png";
+                                    document.querySelector('#temp5').textContent = "Temp: " + data.list[5].main.temp + " ºF";
+                                    document.querySelector('#wind5').textContent = "Wind: " + data.list[5].wind.speed + " MPH";
+                                    document.querySelector('#humidity5').textContent = "Humidity: " + data.list[5].main.humidity + " %";
                                 });
                                 var apiCurrentUrl = apiCurrentStart + lat + lonKey + lon + apiKey;
                                 fetch(apiCurrentUrl)
@@ -54,7 +88,11 @@ var formSubmitHandler = function (event) {
                                             
                                             response.json().then(function(data) {
                                                 console.log(data);
-                                                document.querySelector('#current-temp').textContent = data.main.temp + "ºF";
+                                                document.querySelector('#currentTemp').textContent = "Temp: " + data.main.temp + " ºF";
+                                                document.querySelector('#currentHumidity').textContent = "Humidity: " + data.main.humidity + " %";
+                                                document.querySelector('#currentWind').textContent = "Wind: " + data.wind.speed + " MPH";
+                                                document.querySelector('#currentIcon').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+                                                console.log(data.weather[0].icon);
                                             });
                                         }
                                     })
