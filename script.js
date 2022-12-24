@@ -17,10 +17,37 @@ var limit = '';
 var currentDate = dayjs().format('MM/DD/YY')
 // var apiUrl = apiStart + lat + lonKey + lon + apiKey;
 // var apiCoor = apiCoorStart + city + coorLimit + limit + apiKey;
-
+if(cityArray === null) {
+    var cityArray = [];
+    localStorage.setItem('cityList', JSON.stringify(cityArray));
+} 
 // the function run when the form is submitted
 var formSubmitHandler = function (event) {
     var city = userInput.value.trim();
+    // attempt 1
+    // localStorage.setItem('cityList', userInput.value);
+    // attempt 2
+    // function addCity (userInput) {
+    //     let cityList = JSON.parse(localStorage.getItem('cityList', '[]'));
+    //     cityList.push(userInput);
+    //     localStorage.setItem('cityList', JSON.stringify(cityList));
+    // }
+    // addCity();
+    // function getCity () {
+    //     return JSON.parse(localStorage.getItem('cityList', '[]'));
+    // }
+    // attempt 3
+    // var cityList = [];
+    // cityList.push(userInput);
+    // localStorage.setItem('cityList', JSON.stringify(userInput.value));
+    // attempt 4
+    // var cityArray = [{userInput}];
+    // localStorage.setItem('cityList', JSON.stringify(cityArray));
+
+    var cityArray = JSON.parse(localStorage.getItem("cityList"));
+    cityArray.push(userInput.value.trim());
+    localStorage.setItem("cityList", JSON.stringify(cityArray));
+    
     event.preventDefault();
     console.log(city);
     var getCoor = function() {
