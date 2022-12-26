@@ -69,6 +69,10 @@ hr {
     margin: 5px;
 }
 
+.btn:hover {
+    opacity: 75%;
+}
+
 #weatherContainer {
     display: flex;
     flex-direction: column;

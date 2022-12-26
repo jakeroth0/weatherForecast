@@ -17,11 +17,15 @@ var limit = '';
 var currentDate = dayjs().format('MM/DD/YY')
 // var apiUrl = apiStart + lat + lonKey + lon + apiKey;
 // var apiCoor = apiCoorStart + city + coorLimit + limit + apiKey;
-if(cityArray === null) {
+// var cityArray = [];
+// console.log(cityArray);
+// if(cityArray === undefined) {
     var cityArray = [];
+    if(localStorage.getItem('cityList') === null) {
     localStorage.setItem('cityList', JSON.stringify(cityArray));
 } 
 // the function run when the form is submitted
+console.log(cityArray);
 var formSubmitHandler = function (event) {
     var city = userInput.value.trim();
     // attempt 1
@@ -43,7 +47,8 @@ var formSubmitHandler = function (event) {
     // attempt 4
     // var cityArray = [{userInput}];
     // localStorage.setItem('cityList', JSON.stringify(cityArray));
-
+        
+    
     var cityArray = JSON.parse(localStorage.getItem("cityList"));
     cityArray.push(userInput.value.trim());
     localStorage.setItem("cityList", JSON.stringify(cityArray));
