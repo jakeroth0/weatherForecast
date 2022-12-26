@@ -23,36 +23,134 @@ var currentDate = dayjs().format('MM/DD/YY')
     var cityArray = [];
     if(localStorage.getItem('cityList') === null) {
     localStorage.setItem('cityList', JSON.stringify(cityArray));
-} 
+} else {
+    console.log('not null');
+    var cityArray = JSON.parse(localStorage.getItem("cityList"));
+    var reverseCityArray = cityArray.reverse();
+    for (let i = 0; i < cityArray.length; i++) {
+        const element = cityArray[i];
+        var oldSearchBtn = document.createElement("button");
+        
+        oldSearchBtn.onclick = function() {
+            btnInnerText = this.innerText;
+            console.log(btnInnerText);
+            var city = btnInnerText;
+
+            var getCoor = function() {
+                apiCoor = apiCoorStart + city + coorLimit + 1 + apiKey;
+                fetch(apiCoor)
+                    .then(function (response) {
+                        if (response.ok) {
+                            response.json().then(function(data) {
+                                // dataProcessor(data);
+                                console.log(apiCoor);
+                                console.log(data[0].name);
+                                document.querySelector('#currentCity').textContent = data[0].name;
+                                console.log(data[0]);
+                                if (!data[0]) {
+                                    return alert('City could not be found: ' + city)
+                                }
+                                console.log(data[0].lat);
+                                console.log(data[0].lon);
+                                var lat = data[0].lat;
+                                var lon = data[0].lon;
+                                // console.log(lat);
+                                // console.log(lon);
+                                var apiUrl = apiStart + lat + lonKey + lon + apiKey;
+                                fetch(apiUrl)
+                                    .then(function (response) {
+                                        if (response.ok) {
+                                            response.json().then(function(data) {
+                                            console.log(data);
+                                            document.querySelector('#currentDate').textContent = "(" + currentDate + ")";
+                                            // Day 1
+                                            document.querySelector('#date1').textContent = dayjs().add(1,'day').format('MM/DD/YY');
+                                            document.querySelector('#icon1').src = "http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png";
+                                            document.querySelector('#temp1').textContent = "Temp: " + data.list[1].main.temp + " ºF";
+                                            document.querySelector('#wind1').textContent = "Wind: " + data.list[1].wind.speed + " MPH";
+                                            document.querySelector('#humidity1').textContent = "Humidity: " + data.list[1].main.humidity + " %";
+                                            // Day 2
+                                            document.querySelector('#date2').textContent = dayjs().add(2,'day').format('MM/DD/YY');
+                                            document.querySelector('#icon2').src = "http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png";
+                                            document.querySelector('#temp2').textContent = "Temp: " + data.list[2].main.temp + " ºF";
+                                            document.querySelector('#wind2').textContent = "Wind: " + data.list[2].wind.speed + " MPH";
+                                            document.querySelector('#humidity2').textContent = "Humidity: " + data.list[2].main.humidity + " %";
+                                            // Day 3
+                                            document.querySelector('#date3').textContent = dayjs().add(3,'day').format('MM/DD/YY');
+                                            document.querySelector('#icon3').src = "http://openweathermap.org/img/w/" + data.list[3].weather[0].icon + ".png";
+                                            document.querySelector('#temp3').textContent = "Temp: " + data.list[3].main.temp + " ºF";
+                                            document.querySelector('#wind3').textContent = "Wind: " + data.list[3].wind.speed + " MPH";
+                                            document.querySelector('#humidity3').textContent = "Humidity: " + data.list[3].main.humidity + " %";
+                                            // Day 4
+                                            document.querySelector('#date4').textContent = dayjs().add(4,'day').format('MM/DD/YY');
+                                            document.querySelector('#icon4').src = "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png";
+                                            document.querySelector('#temp4').textContent = "Temp: " + data.list[4].main.temp + " ºF";
+                                            document.querySelector('#wind4').textContent = "Wind: " + data.list[4].wind.speed + " MPH";
+                                            document.querySelector('#humidity4').textContent = "Humidity: " + data.list[4].main.humidity + " %";
+                                            // Day 5
+                                            document.querySelector('#date5').textContent = dayjs().add(5,'day').format('MM/DD/YY');
+                                            document.querySelector('#icon5').src = "http://openweathermap.org/img/w/" + data.list[5].weather[0].icon + ".png";
+                                            document.querySelector('#temp5').textContent = "Temp: " + data.list[5].main.temp + " ºF";
+                                            document.querySelector('#wind5').textContent = "Wind: " + data.list[5].wind.speed + " MPH";
+                                            document.querySelector('#humidity5').textContent = "Humidity: " + data.list[5].main.humidity + " %";
+                                        });
+                                        var apiCurrentUrl = apiCurrentStart + lat + lonKey + lon + apiKey;
+                                        fetch(apiCurrentUrl)
+                                            .then(function (response) {
+                                                if (response.ok) {
+                                                    
+                                                    response.json().then(function(data) {
+                                                        console.log(data);
+                                                        document.querySelector('#currentTemp').textContent = "Temp: " + data.main.temp + " ºF";
+                                                        document.querySelector('#currentHumidity').textContent = "Humidity: " + data.main.humidity + " %";
+                                                        document.querySelector('#currentWind').textContent = "Wind: " + data.wind.speed + " MPH";
+                                                        document.querySelector('#currentIcon').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+                                                        console.log(data.weather[0].icon);
+                                                    });
+                                                }
+                                            })
+                                        }
+                                })
+        
+                        });
+                        }
+                    })
+            };
+            getCoor();
+            
+        
+            
+            // console.log(lat);
+            // console.log(lon);
+            // var getWeather = function() {
+            //     apiUrl = apiStart + 
+            // }
+            // getWeather();
+            form.reset();
+        
+        }
+        
+        let textOldSearchBtn = document.createTextNode(cityArray[i]);
+        oldSearchBtn.appendChild(textOldSearchBtn);
+        document.querySelector('#recentSearches').appendChild(oldSearchBtn).classList.add('btnCity');
+    }
+    // document.querySelector('#recentSearches').appendChild(button);
+}
+
 // the function run when the form is submitted
 console.log(cityArray);
 var formSubmitHandler = function (event) {
+    if (userInput.value == "") {
+        alert('Enter a city name');
+    }
+   
     var city = userInput.value.trim();
-    // attempt 1
-    // localStorage.setItem('cityList', userInput.value);
-    // attempt 2
-    // function addCity (userInput) {
-    //     let cityList = JSON.parse(localStorage.getItem('cityList', '[]'));
-    //     cityList.push(userInput);
-    //     localStorage.setItem('cityList', JSON.stringify(cityList));
-    // }
-    // addCity();
-    // function getCity () {
-    //     return JSON.parse(localStorage.getItem('cityList', '[]'));
-    // }
-    // attempt 3
-    // var cityList = [];
-    // cityList.push(userInput);
-    // localStorage.setItem('cityList', JSON.stringify(userInput.value));
-    // attempt 4
-    // var cityArray = [{userInput}];
-    // localStorage.setItem('cityList', JSON.stringify(cityArray));
-        
-    
     var cityArray = JSON.parse(localStorage.getItem("cityList"));
+   if (!userInput.value == ""){
     cityArray.push(userInput.value.trim());
     localStorage.setItem("cityList", JSON.stringify(cityArray));
-    
+   }
+
     event.preventDefault();
     console.log(city);
     var getCoor = function() {
@@ -147,6 +245,8 @@ var formSubmitHandler = function (event) {
     // getWeather();
     form.reset();
 };
+
+
 // function dataProcessor(data){
 //     console.log(data);
 //     var lat = data[0].lat;
@@ -179,4 +279,6 @@ var formSubmitHandler = function (event) {
 // };
 
 // This listens for a submit and then runs a function
+
 form.addEventListener('submit', formSubmitHandler);
+// document.querySelector('.btnCity').addEventListener('click',formSubmitHandler);
