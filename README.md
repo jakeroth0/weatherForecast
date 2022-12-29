@@ -7,7 +7,7 @@ This app uses Open Weather Map's API to display the current weather and also the
 The user interface utilizes the view port to set elements sizes dynamically. There's also a breakpoint in the CSS file so that the web app is mobile friendly.
 
 ## Link
-[Weather Forecast}(https://jakeroth0.github.io/weatherForecast/)
+[Weather Forecast](https://jakeroth0.github.io/weatherForecast/)
 
 ## Credits
 Open Weather Maps
