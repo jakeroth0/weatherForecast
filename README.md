@@ -18,5 +18,4 @@ N/A
 
 ## Screen Shot
 
-![Screen Shot]
-(https://github.com/jakeroth0/weatherForecast/blob/c366015da9ce7ef74877cb23fb75c2980e70e304/assets/images/weatherAppScreenShot.png)
+![Screen Shot](assets/images/weatherAppScreenShot.png)
